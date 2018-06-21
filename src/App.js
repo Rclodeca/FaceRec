@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/navigation/Navigation.js';
+import Logo from './components/logo/Logo.js';
 import 'tachyons';
 
 class App extends Component {
@@ -8,8 +9,8 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        {/*<Logo />
-        <ImageLinkForm />
+        <Logo />
+        {/*<ImageLinkForm />
         <FaceRecognition />*/}
       </div>
     );
