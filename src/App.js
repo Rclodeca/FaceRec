@@ -51,7 +51,7 @@ class App extends Component {
       const width = Number(image.width);
       const height = Number(image.height);
       return {
-         leftcol: clarifaiFace.left_col * width,
+         leftCol: clarifaiFace.left_col * width,
          topRow: clarifaiFace.top_row * height,
          rightCol: width - (clarifaiFace.right_col * width),
          bottomRow: height - (clarifaiFace.bottom_row * height)
@@ -59,6 +59,7 @@ class App extends Component {
    }
 
    displayFaceBox = (box) => {
+      console.log(box);
       this.setState({box: box});
    }
 
@@ -67,13 +68,13 @@ class App extends Component {
    }
 
    onButtonSubmit = () => {
-      this.setState({ imageURL: this.state.input})
+      this.setState({ imageURL: this.state.input});
       app.models
       .predict(
          Clarifai.FACE_DETECT_MODEL, 
          this.state.input
       )
-      .then(response => this.calculateFaceLocation(response))
+      .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
       .catch(err => console.log(err));
    }
 
@@ -85,13 +86,16 @@ class App extends Component {
             params={particleOptions}
          />
          <Navigation />
-         <Logo />  
+         {/*<Logo /> */} 
          <Rank />
          <ImageLinkForm   
             onInputChange={this.onInputChange}
             onButtonSubmit={this.onButtonSubmit}
          />
-         <FaceRecognition imageURL={this.state.imageURL} />
+         <FaceRecognition 
+            box={this.state.box} 
+            imageURL={this.state.imageURL} 
+         />
       </div>
       );
    }
