@@ -20,7 +20,7 @@ const app = new Clarifai.App({
 const particleOptions = {
    particles: {
       number: {
-         value: 50,
+         value: 20,
          density: {
             enable: true,
             value_area: 500
@@ -118,9 +118,11 @@ class App extends Component {
 
    onRouteChange = (route) => {
       if (route === 'signin') {
-         this.setState({isSignedIn: false})
+         this.setState({isSignedIn: false});
+         this.setState({box: {}});
+         this.setState({imageURL: ''});
       } else if (route === 'home'){
-          this.setState({isSignedIn: true})
+          this.setState({isSignedIn: true});
       }
       this.setState({route: route});
    }

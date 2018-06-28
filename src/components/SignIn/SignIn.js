@@ -28,9 +28,9 @@ class SignIn extends React.Component {
 			})
 		})
 			.then(response => response.json())
-			.then(async user => {
+			.then(user => {
 				if (user.id) {
-					await this.props.loadUser(user);
+					this.props.loadUser(user);
 					this.props.onRouteChange('home');
 				}
 			});
@@ -74,7 +74,7 @@ class SignIn extends React.Component {
 			      />
 			    </div>
 			    <div className="lh-copy mt3">
-			      <p onClick={() => onRouteChange('register')} className="f6 link dim black db">Register</p>
+			      <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
 			    </div>
 			  </div>
 			</main>
