@@ -36,6 +36,13 @@ class SignIn extends React.Component {
 			});
 	}
 
+	handleKeyPress = (event) => {
+    const code = event.keyCode || event.which;
+    if(code === 13) { 
+        this.onSubmitSignIn();
+    } 
+  }
+
 	render() {
 		const { onRouteChange } = this.props;
 		return (
@@ -62,6 +69,7 @@ class SignIn extends React.Component {
 			        	name="password"  
 			        	id="password" 
 			        	onChange={this.onPasswordChange}
+			        	onKeyPress={this.handleKeyPress.bind(this)}
 			        />
 			      </div>
 			    </fieldset>
