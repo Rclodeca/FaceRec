@@ -1,4 +1,5 @@
 import React from 'react'; 
+import LoginError from '../LoginError/LoginError';
 
 
 class SignIn extends React.Component {
@@ -6,7 +7,8 @@ class SignIn extends React.Component {
 		super(props);
 		this.state = {
 			signInEmail: '',
-			signInPassword: ''
+			signInPassword: '',
+			invalidLogin: false
 		}
 	}
 
@@ -32,6 +34,8 @@ class SignIn extends React.Component {
 				if (user.id) {
 					this.props.loadUser(user);
 					this.props.onRouteChange('home');
+				} else {
+					this.setState({invalidLogin: true});
 				}
 			});
 	}
@@ -84,6 +88,7 @@ class SignIn extends React.Component {
 			    <div className="lh-copy mt3">
 			      <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
 			    </div>
+			    <LoginError invalidLogin={this.state.invalidLogin}/>
 			  </div>
 			</main>
 			</article>

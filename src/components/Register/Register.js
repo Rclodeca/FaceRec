@@ -1,4 +1,5 @@
 import React from 'react'; 
+import RegisterError from '../LoginError/RegisterError.js';
 
 
 class Register extends React.Component {
@@ -7,7 +8,9 @@ class Register extends React.Component {
 		this.state = {
 			email: '',
 			password: '',
-			name: ''
+			name: '',
+			invalidRegister: false,
+			dupeUser: false
 		}
 	}
 
@@ -24,18 +27,28 @@ class Register extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
+		const { name, email, password } = this.state;
+		if (!name || !email || !password) {
+			this.setState({invalidRegister: true});
+			return;
+		} 
+		this.setState({invalidRegister: false});
 		fetch('http://localhost:3000/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				email: this.state.email,
-				password: this.state.password,
-				name: this.state.name
+				email: email,
+				password: password,
+				name: name
 			})
 		})
 			.then(response => response.json())
 			.then(user => {
-				if (user) {
+				if (user.name === undefined) {
+					this.setState({dupeUser: true});
+					return;
+				}
+				else if (user) {
 					this.props.loadUser(user);
 					this.props.onRouteChange('home');
 				}
@@ -87,6 +100,12 @@ class Register extends React.Component {
 			      	type="submit" 
 			      	value="Register" 
 			      />
+			    </div>
+			    <div>
+			    	<RegisterError 
+			    		invalidRegister={this.state.invalidRegister} 
+			    		dupeUser={this.state.dupeUser}
+			    	/>
 			    </div>
 			  </div>
 			</main>
