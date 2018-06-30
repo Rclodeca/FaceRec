@@ -6,16 +6,10 @@ import 'tachyons';
 import ImageLinkForm from './components/imageLinkForm/ImageLinkForm.js';
 import Rank from './components/rank/Rank.js';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
-import { key } from './Api.json';
 import FaceRecognition from './components/faceRecognition/FaceRecognition.js';
 import Signin from './components/SignIn/SignIn.js';
 import Register from './components/Register/Register.js';
 
-
-const app = new Clarifai.App({
- apiKey: key
-});
 
 const particleOptions = {
    particles: {
@@ -95,11 +89,14 @@ class App extends Component {
          return;
       }
       this.setState({imageURL: this.state.input});
-      app.models
-      .predict(
-         Clarifai.FACE_DETECT_MODEL, 
-         this.state.input
-      )
+      fetch('http://localhost:3000/imageurl', {
+         method: 'post',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({
+            input: this.state.input
+         })
+      })
+      .then(response => response.json())
       .then(response => {
          if (response) {
             fetch('http://localhost:3000/image', {
