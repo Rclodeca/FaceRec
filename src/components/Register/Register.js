@@ -33,7 +33,7 @@ class Register extends React.Component {
 			return;
 		} 
 		this.setState({invalidRegister: false});
-		fetch('http://localhost:3000/register', {
+		fetch('https://arcane-springs-43517.herokuapp.com/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
