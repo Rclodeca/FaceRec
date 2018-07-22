@@ -1,3 +1,48 @@
+## FaceRec
+
+A full stack web application used to recognize and highlight faces in user uploaded photos and images. Built with React, Node.js, Express, PostgreSQL, JavaScript, CSS, and HTML. Used the Clarifai API.
+
+## Project Screen Shots   
+
+[ SCREEN SHOT HERE ]
+
+[ OTHER SCREEN SHOT HERE ]
+
+## Installation and Setup Instructions 
+
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+
+Installation:
+
+`npm install`  
+
+To Run Test Suite:  
+
+`npm test`  
+
+To Start Server:
+
+`npm start`  
+
+To Visit App:
+
+`localhost:3001/`  
+
+This will only get you the front-end of the app. To get the app working, you will also have to run the FaceRec API, and a PostgreSQL database.
+
+You can find the API [here.](https://github.com/Rclodeca/FaceRec-API)
+
+## Reflection
+
+One of the challenges I ran into was security, and keeping important data safe. Originally I had my API calls in the front-end portion of my app. I took measures to hide the key from Git, however I realized that even though I had hidden the API key, that when my app called the API, the key was displayed in the network tab in Chrome's inspect element. I then moved the API calls to the Node server, so that when an API call was needed, the front-end would make a POST request to the back-end, and the back-end would call the API. I also had to look into protecting users' passwords in the database. I found out that I could use Bcrypt to hash all of the user passwords.
+
+I also learned how to use Postman which was extremely helpful. Postman lets you simulate fake HTTP calls to your server, which drastically reduced the amount of time I had to spend testing my Node server. 
+
+I chose to use `create-react-app` boilerplate to minimize initial setup and help to learn React.
+
+
+## React
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
