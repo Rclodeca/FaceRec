@@ -34,6 +34,8 @@ You can find the API [here.](https://github.com/Rclodeca/FaceRec-API)
 
 ## Reflection
 
+This was a 4 week long project built during summer 2018. Project goals included learning modern frameworks, such as React and Express, learning how to setup a RESTful API server, setting up a database, and using my knowledge of HTML, CSS, and JavaScript to create a full stack web application.
+
 One of the challenges I ran into was security, and keeping important data safe. Originally I had my API calls in the front-end portion of my app. I took measures to hide the key from Git, however I realized that even though I had hidden the API key, that when my app called the API, the key was displayed in the network tab in Chrome's inspect element. I then moved the API calls to the Node server, so that when an API call was needed, the front-end would make a POST request to the back-end, and the back-end would call the API. I also had to look into protecting users' passwords in the database. I found out that I could use Bcrypt to hash all of the user passwords.
 
 I also learned how to use Postman which was extremely helpful. Postman lets you simulate fake HTTP calls to your server, which drastically reduced the amount of time I had to spend testing my Node server. 
