@@ -2,6 +2,8 @@
 
 A full stack web application used to recognize and highlight faces in user uploaded photos and images. Built with React, Node.js, Express, PostgreSQL, JavaScript, CSS, and HTML. Used the Clarifai API.
 
+View the deployed project [here.](https://face-rec-rclodeca.herokuapp.com/)
+
 ## Project Screen Shots   
 
 [ SCREEN SHOT HERE ]
