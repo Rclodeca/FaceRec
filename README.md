@@ -6,9 +6,10 @@ View the deployed project [here.](https://face-rec-rclodeca.herokuapp.com/)
 
 ## Project Screen Shots   
 
-[ SCREEN SHOT HERE ]
+![SignIn](img/FaceRecSignIn.JPG)
+![Home](img/FaceRecHome.JPG)
+![Example](img/FaceRecExample.JPG)
 
-[ OTHER SCREEN SHOT HERE ]
 
 ## Installation and Setup Instructions 
 
