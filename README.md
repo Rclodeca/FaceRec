@@ -1,4 +1,4 @@
-![npm version](https://img.shields.io/badge/npm-v5.6.0-blue.svg)
+![npm version](https://img.shields.io/badge/npm-v5.6.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 # FaceRec
 
 A full stack web application used to recognize and highlight faces in user uploaded photos and images. Built with React, Node.js, Express, PostgreSQL, JavaScript, CSS, and HTML. Used the Clarifai API.
